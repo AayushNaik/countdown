@@ -20,7 +20,7 @@
         }
 
         function revealSecret() {
-            let secretCode = 'Something';
+            let secretCode = 'p@t13nc3_r3v34l$_@ll';
             for (let piece of encryptedPieces) {
                 secretCode += secureDecrypt(piece, timeKey);
             }
