@@ -6,7 +6,7 @@
             'U2FsdGVkX1+1gL6lOQDh1EUH6lOEpAiqTHchRhQbfwY='
         ];
 
-        const endDate = new Date('2025-04-10T13:13:00');
+        const endDate = new Date('2025-04-11T13:13:00');
         const timeKey = endDate.getTime().toString();
 
         function secureDecrypt(encryptedText, key) {
@@ -19,12 +19,12 @@
             }
         }
 
-        function revealSecret() {
-            let secretCode = 'p@t13nc3_r3v34l$_@ll';
+        function firstEncryption() {
+            let piece1 = 'p@t13nc3_r3v34l$_@ll';
             for (let piece of encryptedPieces) {
-                secretCode += secureDecrypt(piece, timeKey);
+                piece1 += secureDecrypt(piece, timeKey);
             }
-            document.getElementById('secret').innerHTML = `Secret Code: ${secretCode}`;
+            document.getElementById('secret').innerHTML = `Secret Code: ${piece1}`;
         }
 
         function updateCountdown() {
@@ -42,7 +42,7 @@
                 `;
             } else {
                 document.getElementById('countdown').innerHTML = 'Countdown finished!';
-                revealSecret();
+                firstEncryption();
             }
         }
 
